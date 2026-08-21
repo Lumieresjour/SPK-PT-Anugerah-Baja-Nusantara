@@ -57,28 +57,18 @@ Sistem menggunakan 4 kriteria utama dalam evaluasi pemasok baja:
 
 ---
 
-## 🚀 Panduan Instalasi & Menjalankan Sistem
+## 🚀 Setup Sistem
 
-### 1. Prasyarat Sistem
-- PHP >= 8.1
-- Composer
-- MySQL Server (XAMPP/Laragon)
-- Web Browser
-
-### 2. Langkah Instalasi
-
+### 1. Setup Awal
 ```bash
-# 1. Clone repositori ini
-git clone [https://github.com/username-kamu/spk-supplier-saw.git](https://github.com/username-kamu/spk-supplier-saw.git)
+php artisan migrate
+php artisan db:seed
+php artisan config:clear
+php artisan cache:clear
+php artisan serve
+```
 
-# 2. Masuk ke direktori proyek
-cd spk-supplier-saw
-
-# 3. Install dependency composer
-composer install
-
-# 4. Salin file environment
-cp .env.example .env
-
-# 5. Generate application key
-php artisan key:generate
+### 2. Login
+- **URL**: http://localhost:8000
+- **Username**: admin
+- **Password**: admin123
