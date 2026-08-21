@@ -72,3 +72,9 @@ php artisan serve
 - **URL**: http://localhost:8000
 - **Username**: admin
 - **Password**: admin123
+
+---
+
+Dikembangkan oleh **Kelompok 12** untuk mata kuliah Rekayasa Perangkat Lunak, Poyek Sistem Informasi, dan Sistem Pendukung Keputusan.
+
+---
