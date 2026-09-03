@@ -53,7 +53,7 @@ Sistem menggunakan 4 kriteria utama dalam evaluasi pemasok baja:
 - **Frontend**: Blade Template, Bootstrap, HTML5, CSS3, JavaScript
 - **Database**: MySQL / MariaDB
 - **Reporting Library**: DomPDF
-- **Local Server**: XAMPP / Apache
+- **Local Server**: Laragon / Apache
 
 ---
 
