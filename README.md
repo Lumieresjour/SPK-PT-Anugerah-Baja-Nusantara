@@ -61,10 +61,12 @@ Sistem menggunakan 4 kriteria utama dalam evaluasi pemasok baja:
 
 ### 1. Setup Awal
 ```bash
+composer install
 php artisan migrate
 php artisan db:seed
 php artisan config:clear
 php artisan cache:clear
+php artisan key:generate
 php artisan serve
 ```
 
