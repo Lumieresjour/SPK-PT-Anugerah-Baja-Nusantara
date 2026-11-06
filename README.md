@@ -53,20 +53,42 @@ Sistem menggunakan 4 kriteria utama dalam evaluasi pemasok baja:
 - **Frontend**: Blade Template, Bootstrap, HTML5, CSS3, JavaScript
 - **Database**: MySQL / MariaDB
 - **Reporting Library**: DomPDF
-- **Local Server**: Xampp / Apache
+- **Local Server**: Laragon / Xampp
 
 ---
 
 ## 🚀 Setup Sistem
 
+### Prasyarat
+- PHP >= 8.1, Composer
+- MySQL / MariaDB aktif (Laragon / Xampp)
+
 ### 1. Setup Awal
 ```bash
+# 1. Install dependency
 composer install
-php artisan migrate
-php artisan db:seed
-php artisan config:clear
-php artisan cache:clear
+
+# 2. Buat file .env (Windows CMD: copy .env.example .env)
+cp .env.example .env
+```
+
+Edit `.env`, sesuaikan koneksi database:
+```env
+DB_DATABASE=spk_baja
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+```bash
+# 3. Buat database (atau lewat phpMyAdmin / HeidiSQL)
+mysql -u root -e "CREATE DATABASE spk_baja CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+# 4. Generate key, migrasi + seed akun admin
 php artisan key:generate
+php artisan migrate --seed
+
+# 5. Bersihkan cache & jalankan server
+php artisan optimize:clear
 php artisan serve
 ```
 
