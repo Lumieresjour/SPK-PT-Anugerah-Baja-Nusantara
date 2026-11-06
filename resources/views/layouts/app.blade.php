@@ -144,6 +144,7 @@
             padding: 12px 16px;
             white-space: nowrap;
         }
+        .table thead th .th-sub { text-transform: none; letter-spacing: 0; }
         .table td { padding: 12px 16px; color: var(--ink); vertical-align: middle; border-color: var(--line); }
         .table tbody tr:last-child td { border-bottom: 0; }
         .table td form { display: inline; }
@@ -191,7 +192,7 @@
     <aside class="sidebar">
         <div class="sidebar-header">
             <h3>Web<span>SPK</span></h3>
-            <p>Sistem Penunjang Keputusan Supplier<br>PT Karunia Baja Persada</p>
+            <p>Sistem Penunjang Keputusan Supplier<br>PT Anugerah Baja Nusantara</p>
         </div>
 
         <nav aria-label="Menu utama">

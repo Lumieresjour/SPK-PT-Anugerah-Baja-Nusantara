@@ -99,6 +99,5 @@ php artisan serve
 
 ---
 
-Dikembangkan oleh **Kelompok 12** untuk mata kuliah Rekayasa Perangkat Lunak, Poyek Sistem Informasi, dan Sistem Pendukung Keputusan.
 
 ---

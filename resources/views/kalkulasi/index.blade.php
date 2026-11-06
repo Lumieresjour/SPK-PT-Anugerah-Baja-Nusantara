@@ -34,8 +34,8 @@
                         <th title="{{ $krit->nama_kriteria }} ({{ $krit->jenis }}, Bobot: {{ $krit->bobot }}%)">
                             <small>
                                 C{{ $index + 1 }}<br>
-                                <span class="fw-normal text-lowercase">{{ $krit->nama_kriteria }}</span><br>
-                                <span class="fw-normal text-lowercase">Bobot: {{ $krit->bobot }}%</span>
+                                <span class="fw-normal th-sub">{{ $krit->nama_kriteria }}</span><br>
+                                <span class="fw-normal th-sub">Bobot: {{ $krit->bobot }}%</span>
                             </small>
                         </th>
                     @endforeach

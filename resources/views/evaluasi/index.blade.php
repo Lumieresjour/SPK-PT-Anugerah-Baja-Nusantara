@@ -31,7 +31,7 @@
                         <th title="{{ $krit->nama_kriteria }}">
                             <small>
                                 C{{ $index + 1 }}<br>
-                                <span class="fw-normal text-lowercase">{{ substr($krit->nama_kriteria, 0, 10) }}</span>
+                                <span class="fw-normal th-sub">{{ substr($krit->nama_kriteria, 0, 10) }}</span>
                             </small>
                         </th>
                     @endforeach

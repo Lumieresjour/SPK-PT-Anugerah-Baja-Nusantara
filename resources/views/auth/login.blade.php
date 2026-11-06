@@ -61,7 +61,7 @@
     <div class="login-container">
         <div class="login-header">
             <h1>Web<span>SPK</span></h1>
-            <p>Sistem Penunjang Keputusan Supplier<br>PT Karunia Baja Persada</p>
+            <p>Sistem Penunjang Keputusan Supplier<br>PT Anugerah Baja Nusantara</p>
         </div>
 
         @if ($errors->has('login'))
