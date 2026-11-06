@@ -4,14 +4,14 @@
 
 @section('content')
 <div class="mb-3">
-    <form method="POST" action="{{ route('kalkulasi.calculate') }}" style="display: inline;">
+    <form method="POST" action="{{ route('kalkulasi.calculate') }}" class="d-inline">
         @csrf
         <button type="submit" class="btn btn-primary-custom">
             <i class="fas fa-calculator"></i> Hitung Ranking
         </button>
     </form>
     @if (!$results->isEmpty())
-        <a href="{{ route('kalkulasi.pdf') }}" class="btn" style="background-color: #dc3545; color: white;">
+        <a href="{{ route('kalkulasi.pdf') }}" class="btn btn-pdf">
             <i class="fas fa-file-pdf"></i> Export PDF
         </a>
     @endif
@@ -23,8 +23,8 @@
         <p>Klik Hitung, jika tidak muncul, silahkan tambah data pada laman Perusahaan, Kriteria dan Evaluasi</p>
     </div>
 @else
-    <div class="table-container" style="overflow-x: auto;">
-        <table class="table table-hover" style="font-size: 12px;">
+    <div class="table-container">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Ranking</th>
@@ -34,8 +34,8 @@
                         <th title="{{ $krit->nama_kriteria }} ({{ $krit->jenis }}, Bobot: {{ $krit->bobot }}%)">
                             <small>
                                 C{{ $index + 1 }}<br>
-                                <span style="font-weight: normal; font-size: 10px;">{{ $krit->nama_kriteria }}</span><br>
-                                <span style="font-weight: normal; font-size: 10px;">Bobot: {{ $krit->bobot }}%</span>
+                                <span class="fw-normal text-lowercase">{{ $krit->nama_kriteria }}</span><br>
+                                <span class="fw-normal text-lowercase">Bobot: {{ $krit->bobot }}%</span>
                             </small>
                         </th>
                     @endforeach
@@ -47,7 +47,7 @@
                 @foreach ($results as $item)
                     <tr>
                         <td>
-                            <strong style="font-size: 16px;">
+                            <strong class="fs-5">
                                 {{ $item->ranking }}
                             </strong>
                         </td>
@@ -59,21 +59,21 @@
                             @endphp
                             <td>
                                 @if ($detail)
-                                    <div style="line-height: 1.2;">
+                                    <div class="lh-sm">
                                         <small>
-                                            <span style="font-weight: bold;">{{ number_format($detail['weighted'], 4) }}</span><br>
-                                            <span style="font-size: 9px; color: #666;">
+                                            <span class="fw-semibold">{{ number_format($detail['weighted'], 4) }}</span><br>
+                                            <span class="text-muted">
                                                 N: {{ number_format($detail['normalized'], 4) }}
                                             </span>
                                         </small>
                                     </div>
                                 @else
-                                    <span style="color: #999;">-</span>
+                                    <span class="text-muted">-</span>
                                 @endif
                             </td>
                         @endforeach
                         <td>
-                            <span class="badge" style="background-color: #44A340; font-size: 12px;">
+                            <span class="badge badge-brand fs-6">
                                 {{ number_format($item->skor_akhir, 4) }}
                             </span>
                         </td>
@@ -85,9 +85,9 @@
     </div>
 
     <!-- Penjelasan Kolom -->
-    <div style="margin-top: 20px; padding: 15px; background-color: #f0f8ff; border-left: 4px solid #2196F3; border-radius: 4px;">
+    <div class="note">
         <strong>Penjelasan Kolom C1, C2, C3, C4:</strong>
-        <ul style="margin: 10px 0 0 20px; font-size: 12px;">
+        <ul>
             <li><strong>C (Weighted Score)</strong>: Hasil normalisasi × bobot kriteria</li>
             <li><strong>N (Normalized)</strong>: Nilai ternormalisasi (benefit: nilai/max, cost: min/nilai)</li>
             <li><strong>Skor Akhir</strong>: Jumlah semua C1 + C2 + C3 + C4 + ...</li>

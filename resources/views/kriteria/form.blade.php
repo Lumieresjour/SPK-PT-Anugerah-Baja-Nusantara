@@ -67,11 +67,11 @@
         @enderror
     </div>
 
-    <div style="margin-top: 30px;">
+    <div class="form-actions">
         <button type="submit" class="btn btn-primary-custom">
             <i class="fas fa-save"></i> {{ isset($kriteria) ? 'Perbarui' : 'Simpan' }}
         </button>
-        <a href="{{ route('kriteria.index') }}" class="btn btn-secondary" style="background-color: #6c757d; color: white;">
+        <a href="{{ route('kriteria.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Kembali
         </a>
     </div>

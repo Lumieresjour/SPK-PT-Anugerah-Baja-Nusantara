@@ -18,11 +18,11 @@
     <div class="empty-state">
         <i class="fas fa-chart-bar"></i>
         <p>Belum ada data evaluasi</p>
-        <p style="font-size: 13px; color: #999; margin: 10px 0;">Pastikan sudah ada data perusahaan dan kriteria sebelum menambah evaluasi</p>
+        <p style="font-size: 14px;">Pastikan sudah ada data perusahaan dan kriteria sebelum menambah evaluasi</p>
     </div>
 @else
-    <div class="table-container" style="overflow-x: auto;">
-        <table class="table table-hover" style="font-size: 12px;">
+    <div class="table-container">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Nama Perusahaan</th>
@@ -31,13 +31,13 @@
                         <th title="{{ $krit->nama_kriteria }}">
                             <small>
                                 C{{ $index + 1 }}<br>
-                                <span style="font-weight: normal; font-size: 10px;">{{ substr($krit->nama_kriteria, 0, 10) }}</span>
+                                <span class="fw-normal text-lowercase">{{ substr($krit->nama_kriteria, 0, 10) }}</span>
                             </small>
                         </th>
                     @endforeach
-                    <th style="text-align: center;">Kriteria Terisi</th>
+                    <th class="text-center">Kriteria Terisi</th>
                     <th>Tanggal Update</th>
-                    <th style="text-align: center;">Aksi</th>
+                    <th class="text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,26 +53,26 @@
                             @endphp
                             <td>
                                 @if ($eval)
-                                    <span class="badge" style="background-color: #28a745; font-size: 11px;">
+                                    <span class="badge badge-brand">
                                         {{ $eval->nilai }}
                                     </span>
                                 @else
-                                    <span style="color: #999; font-size: 10px;">-</span>
+                                    <span class="text-muted">-</span>
                                 @endif
                             </td>
                         @endforeach
-                        <td style="text-align: center;">
+                        <td class="text-center">
                             @php
                                 $percentage = ($item->totalKriteria / $totalKriteria) * 100;
                                 if ($item->totalKriteria == $totalKriteria) {
-                                    $badgeColor = '#28a745'; // green - lengkap
+                                    $badgeClass = 'badge-brand';
                                 } elseif ($item->totalKriteria >= ($totalKriteria * 0.5)) {
-                                    $badgeColor = '#ffc107'; // yellow - setengah
+                                    $badgeClass = 'text-bg-warning';
                                 } else {
-                                    $badgeColor = '#dc3545'; // red - kurang
+                                    $badgeClass = 'text-bg-danger';
                                 }
                             @endphp
-                            <span class="badge" style="background-color: {{ $badgeColor }}; padding: 6px 10px; font-size: 11px;">
+                            <span class="badge {{ $badgeClass }}">
                                 {{ $item->totalKriteria }} / {{ $totalKriteria }}
                             </span>
                             @if ($item->totalKriteria < $totalKriteria)
@@ -82,11 +82,11 @@
                         <td>
                             <small>{{ \Carbon\Carbon::parse($item->updated_at)->format('d-m-Y H:i') }}</small>
                         </td>
-                        <td style="text-align: center;">
+                        <td class="text-center">
                             <a href="{{ route('evaluasi.edit', $item->kode_prs) }}" class="btn btn-warning-custom btn-sm">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <form method="POST" action="{{ route('evaluasi.destroy', $item->kode_prs) }}" style="display: inline;" onsubmit="return confirm('Hapus semua evaluasi untuk perusahaan ini?');">
+                            <form method="POST" action="{{ route('evaluasi.destroy', $item->kode_prs) }}" onsubmit="return confirm('Hapus semua evaluasi untuk perusahaan ini?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger-custom btn-sm">
@@ -101,9 +101,4 @@
     </div>
 @endif
 
-<style>
-    .badge {
-        font-weight: 600;
-    }
-</style>
 @endsection

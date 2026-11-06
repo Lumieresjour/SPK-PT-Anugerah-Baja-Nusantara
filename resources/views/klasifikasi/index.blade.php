@@ -33,13 +33,13 @@
                         <td>{{ $item->kriteria->nama_kriteria ?? '-' }}</td>
                         <td>{{ $item->nama_klasifikasi }}</td>
                         <td>
-                            <span class="badge" style="background-color: #44A340;">{{ $item->nilai }}</span>
+                            <span class="badge badge-brand">{{ $item->nilai }}</span>
                         </td>
                         <td>
                             <a href="{{ route('klasifikasi.edit', $item->kode_klasifikasi) }}" class="btn btn-warning-custom btn-sm">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <form method="POST" action="{{ route('klasifikasi.destroy', $item->kode_klasifikasi) }}" style="display: inline;" onsubmit="return confirm('Hapus data?');">
+                            <form method="POST" action="{{ route('klasifikasi.destroy', $item->kode_klasifikasi) }}" onsubmit="return confirm('Hapus data?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger-custom btn-sm">

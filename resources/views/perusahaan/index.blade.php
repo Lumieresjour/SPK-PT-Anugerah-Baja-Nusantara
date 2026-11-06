@@ -37,7 +37,7 @@
                             <a href="{{ route('perusahaan.edit', $item->kode_prs) }}" class="btn btn-warning-custom btn-sm">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <form method="POST" action="{{ route('perusahaan.destroy', $item->kode_prs) }}" style="display: inline;" onsubmit="return confirm('Hapus data?');">
+                            <form method="POST" action="{{ route('perusahaan.destroy', $item->kode_prs) }}" onsubmit="return confirm('Hapus data?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger-custom btn-sm">

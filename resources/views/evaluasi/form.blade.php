@@ -32,9 +32,9 @@
         <p class="mb-0 mt-2">Isi nilai untuk setiap kriteria. Klik dropdown untuk memilih dari kategori yang tersedia, atau input nilai manual jika tidak ada kategori.</p>
     </div>
 
-    <div class="table-responsive mt-4">
-        <table class="table table-bordered">
-            <thead style="background-color: #f8f9fa;">
+    <div class="table-container mt-4">
+        <table class="table">
+            <thead>
                 <tr>
                     <th style="width: 25%;">Kriteria</th>
                     <th style="width: 15%;">Bobot</th>
@@ -53,13 +53,13 @@
                             <strong>{{ $item->nama_kriteria }}</strong>
                         </td>
                         <td>
-                            <span class="badge" style="background-color: #667eea;">{{ $item->bobot }}%</span>
+                            <span class="badge badge-brand">{{ $item->bobot }}%</span>
                         </td>
                         <td>
                             @if ($item->jenis === 'benefit')
-                                <span class="badge bg-success">Benefit</span>
+                                <span class="badge badge-brand">Benefit</span>
                             @else
-                                <span class="badge bg-warning text-dark">Cost</span>
+                                <span class="badge text-bg-warning">Cost</span>
                             @endif
                         </td>
                         <td>
@@ -76,7 +76,7 @@
                                 </select>
                             @else
                                 <!-- Tidak Ada Klasifikasi → Input Number -->
-                                <input type="int" 
+                                <input type="number" 
                                        name="nilai[{{ $item->kode_kriteria }}]" 
                                        class="form-control @error('nilai.' . $item->kode_kriteria) is-invalid @enderror"
                                        min="0" 
@@ -107,29 +107,14 @@
         </div>
     @endif
 
-    <div style="margin-top: 30px;">
+    <div class="form-actions">
         <button type="submit" class="btn btn-primary-custom">
             <i class="fas fa-save"></i> {{ isset($kode_prs) ? 'Perbarui' : 'Simpan' }} Evaluasi
         </button>
-        <a href="{{ route('evaluasi.index') }}" class="btn btn-secondary" style="background-color: #6c757d; color: white;">
+        <a href="{{ route('evaluasi.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Kembali
         </a>
     </div>
 </form>
 
-<style>
-    .table-responsive {
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    table.table {
-        margin-bottom: 0;
-    }
-    
-    .form-control {
-        font-size: 14px;
-    }
-</style>
 @endsection

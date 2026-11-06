@@ -32,7 +32,7 @@
                         <td><strong>{{ $item->kode_kriteria }}</strong></td>
                         <td>{{ $item->nama_kriteria }}</td>
                         <td>
-                            <span class="badge" style="background-color: #44A340;">{{ $item->bobot }}</span>
+                            <span class="badge badge-brand">{{ $item->bobot }}</span>
                         </td>
                         <td>
                             @if ($item->jenis === 'benefit')
@@ -45,7 +45,7 @@
                             <a href="{{ route('kriteria.edit', $item->kode_kriteria) }}" class="btn btn-warning-custom btn-sm">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <form method="POST" action="{{ route('kriteria.destroy', $item->kode_kriteria) }}" style="display: inline;" onsubmit="return confirm('Hapus data?');">
+                            <form method="POST" action="{{ route('kriteria.destroy', $item->kode_kriteria) }}" onsubmit="return confirm('Hapus data?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger-custom btn-sm">
